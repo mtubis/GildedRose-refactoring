@@ -6,22 +6,22 @@ class BackstagePassUpdater implements ItemUpdaterStrategy
 {
     public function update(Item $item): void
     {
-        if ($item->quality < GildedRose::MAX_QUALITY) {
-            $item->quality += 1;
+        if ($item->getQuality() < GildedRose::MAX_QUALITY) {
+            $item->increaseQuality();
 
-            if ($item->sell_in <= GildedRose::BACKSTAGE_PASS_FIRST_THRESHOLD && $item->quality < GildedRose::MAX_QUALITY) {
-                $item->quality += 1;
+            if ($item->getSellIn() <= GildedRose::BACKSTAGE_PASS_FIRST_THRESHOLD && $item->getQuality() < GildedRose::MAX_QUALITY) {
+                $item->increaseQuality();
             }
 
-            if ($item->sell_in <= GildedRose::BACKSTAGE_PASS_SECOND_THRESHOLD && $item->quality < GildedRose::MAX_QUALITY) {
-                $item->quality += 1;
+            if ($item->getSellIn() <= GildedRose::BACKSTAGE_PASS_SECOND_THRESHOLD && $item->getQuality() < GildedRose::MAX_QUALITY) {
+                $item->increaseQuality();
             }
         }
 
-        $item->sell_in -= 1;
+        $item->decreaseSellIn();
 
-        if ($item->sell_in < 0) {
-            $item->quality = GildedRose::MIN_QUALITY;
+        if ($item->getSellIn() < 0) {
+            $item->setQuality(GildedRose::MIN_QUALITY);
         }
     }
 }

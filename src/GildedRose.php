@@ -18,7 +18,7 @@ final class GildedRose
 
     private function getStrategyForItem(Item $item): ItemUpdaterStrategy
     {
-        return match ($item->name) {
+        return match ($item->getName()) {
             'Aged Brie' => new AgedBrieUpdater(),
             'Backstage passes to a TAFKAL80ETC concert' => new BackstagePassUpdater(),
             'Sulfuras, Hand of Ragnaros' => new SulfurasUpdater(),

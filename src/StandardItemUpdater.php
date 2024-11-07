@@ -6,14 +6,14 @@ class StandardItemUpdater implements ItemUpdaterStrategy
 {
     public function update(Item $item): void
     {
-        if ($item->quality > GildedRose::MIN_QUALITY) {
-            $item->quality -= 1;
+        if ($item->getQuality() > GildedRose::MIN_QUALITY) {
+            $item->decreaseQuality();
         }
 
-        $item->sell_in -= 1;
+        $item->decreaseSellIn();
 
-        if ($item->sell_in < 0 && $item->quality > GildedRose::MIN_QUALITY) {
-            $item->quality -= 1;
+        if ($item->getSellIn() < 0 && $item->getQuality() > GildedRose::MIN_QUALITY) {
+            $item->decreaseQuality();
         }
     }
 }

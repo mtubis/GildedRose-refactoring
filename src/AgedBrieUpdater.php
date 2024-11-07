@@ -6,14 +6,14 @@ class AgedBrieUpdater implements ItemUpdaterStrategy
 {
     public function update(Item $item): void
     {
-        if ($item->quality < GildedRose::MAX_QUALITY) {
-            $item->quality += 1;
+        if ($item->getQuality() < GildedRose::MAX_QUALITY) {
+            $item->increaseQuality();
         }
 
-        $item->sell_in -= 1;
+        $item->decreaseSellIn();
 
-        if ($item->sell_in < 0 && $item->quality < GildedRose::MAX_QUALITY) {
-            $item->quality += 1;
+        if ($item->getSellIn() < 0 && $item->getQuality() < GildedRose::MAX_QUALITY) {
+            $item->increaseQuality();
         }
     }
 }

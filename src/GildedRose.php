@@ -9,9 +9,9 @@ final class GildedRose
 
     private ItemUpdaterStrategyFactory $strategyFactory;
 
-    public function __construct()
+    public function __construct(ItemUpdaterStrategyFactory $strategyFactory)
     {
-        $this->strategyFactory = new ItemUpdaterStrategyFactory();
+        $this->strategyFactory = $strategyFactory;
     }
 
     public function updateQuality(Item $item): void

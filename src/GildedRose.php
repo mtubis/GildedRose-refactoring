@@ -7,19 +7,16 @@ final class GildedRose
     public const BACKSTAGE_PASS_FIRST_THRESHOLD = 10;
     public const BACKSTAGE_PASS_SECOND_THRESHOLD = 5;
 
-    public function updateQuality(Item $item): void
+    private ItemUpdaterStrategyFactory $strategyFactory;
+
+    public function __construct()
     {
-        $strategy = $this->getStrategyForItem($item);
-        $strategy->update($item);
+        $this->strategyFactory = new ItemUpdaterStrategyFactory();
     }
 
-    private function getStrategyForItem(Item $item): ItemUpdaterStrategy
+    public function updateQuality(Item $item): void
     {
-        return match ($item->getName()) {
-            'Aged Brie' => new AgedBrieUpdater(),
-            'Backstage passes to a TAFKAL80ETC concert' => new BackstagePassUpdater(),
-            'Sulfuras, Hand of Ragnaros' => new SulfurasUpdater(),
-            default => new StandardItemUpdater(),
-        };
+        $strategy = $this->strategyFactory->create($item);
+        $strategy->update($item);
     }
 }

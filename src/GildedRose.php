@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Strategies\ItemUpdaterStrategyFactory;
+
 final class GildedRose
 {
     public const BACKSTAGE_PASS_FIRST_THRESHOLD = 10;

@@ -1,6 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Strategies;
+
+use App\GildedRose;
+use App\Item;
 
 class BackstagePassUpdater implements ItemUpdaterStrategy
 {

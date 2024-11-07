@@ -2,9 +2,9 @@
 
 namespace Tests\Strategies;
 
-use PHPUnit\Framework\TestCase;
-use App\AgedBrieUpdater;
 use App\Item;
+use App\Strategies\AgedBrieUpdater;
+use PHPUnit\Framework\TestCase;
 
 class AgedBrieUpdaterTest extends TestCase
 {

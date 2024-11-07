@@ -2,9 +2,9 @@
 
 namespace Tests\Strategies;
 
-use PHPUnit\Framework\TestCase;
-use App\SulfurasUpdater;
 use App\Item;
+use App\Strategies\SulfurasUpdater;
+use PHPUnit\Framework\TestCase;
 
 class SulfurasUpdaterTest extends TestCase
 {

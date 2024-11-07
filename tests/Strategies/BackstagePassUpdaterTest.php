@@ -2,9 +2,9 @@
 
 namespace Tests\Strategies;
 
-use PHPUnit\Framework\TestCase;
-use App\BackstagePassUpdater;
 use App\Item;
+use App\Strategies\BackstagePassUpdater;
+use PHPUnit\Framework\TestCase;
 
 class BackstagePassUpdaterTest extends TestCase
 {

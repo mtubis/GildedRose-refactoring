@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Strategies;
+
+use App\Item;
 
 class SulfurasUpdater implements ItemUpdaterStrategy
 {

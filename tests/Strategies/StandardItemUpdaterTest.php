@@ -2,9 +2,9 @@
 
 namespace Tests\Strategies;
 
-use PHPUnit\Framework\TestCase;
-use App\StandardItemUpdater;
 use App\Item;
+use App\Strategies\StandardItemUpdater;
+use PHPUnit\Framework\TestCase;
 
 class StandardItemUpdaterTest extends TestCase
 {

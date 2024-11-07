@@ -4,8 +4,6 @@ namespace App;
 
 final class GildedRose
 {
-    public const MAX_QUALITY = 50;
-    public const MIN_QUALITY = 0;
     public const LEGENDARY_QUALITY = 80;
     public const BACKSTAGE_PASS_FIRST_THRESHOLD = 10;
     public const BACKSTAGE_PASS_SECOND_THRESHOLD = 5;

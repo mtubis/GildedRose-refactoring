@@ -4,6 +4,9 @@ namespace App;
 
 final class Item
 {
+    private const MAX_QUALITY = 50;
+    private const MIN_QUALITY = 0;
+
     private string $name;
     private int $sell_in;
     private int $quality;
@@ -37,17 +40,17 @@ final class Item
 
     public function increaseQuality(int $amount = 1): void
     {
-        $this->quality = min($this->quality + $amount, GildedRose::MAX_QUALITY);
+        $this->quality = min($this->quality + $amount, self::MAX_QUALITY);
     }
 
     public function decreaseQuality(int $amount = 1): void
     {
-        $this->quality = max($this->quality - $amount, GildedRose::MIN_QUALITY);
+        $this->quality = max($this->quality - $amount, self::MIN_QUALITY);
     }
 
     public function setQuality(int $value): void
     {
-        $this->quality = max(min($value, GildedRose::MAX_QUALITY), GildedRose::MIN_QUALITY);
+        $this->quality = max(min($value, self::MAX_QUALITY), self::MIN_QUALITY);
     }
 
     public function __toString(): string

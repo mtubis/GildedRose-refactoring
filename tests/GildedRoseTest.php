@@ -1,5 +1,6 @@
 <?php
 
+use App\ItemUpdaterStrategyFactory;
 use App\GildedRose;
 use App\Item;
 use PHPUnit\Framework\TestCase;
@@ -18,7 +19,8 @@ class GildedRoseTest extends TestCase
     {
         $item = new Item($name, $sellIn, $quality);
 
-        $gildedRose = new GildedRose();
+        $strategyFactory = new ItemUpdaterStrategyFactory();
+        $gildedRose = new GildedRose($strategyFactory);
         $gildedRose->updateQuality($item);
 
         $this->assertEquals($expectedSellIn, $item->getSellIn());
